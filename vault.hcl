@@ -1,14 +1,27 @@
+# Listener
+# 1.     Defines that is listening to all the ip’s
+# 2.     Third party certificate with the client cert is stored and referenced here to allow Https request to Vault
+# Note : It is good idea to copy the root ca and the cert in to vault.crt.  When you integrate other systems like Cloud Foundry or Ansible, You will face certificate verification
+
 listener "tcp" {
-
  address= "0.0.0.0:8200"
- tls_disable= "true"
-
+      tls_cert_file = "/vault/userconfig/vault-server-tls/vault.crt"
+      tls_key_file  = "/vault/userconfig/vault-server-tls/vault.key"
+      tls_client_ca_file = "/vault/userconfig/vault-server-tls/vault.ca"
  }
+
+ #Storage –
+ # 1.     Integrated (raft) storage is used to simply the architecture and to provide HA
+ # 2.     Identity of the node
 
 storage "raft" {
   path = "/opt/data"
   node_id = "Vault-VM01"
 }
+
+# Azure key Vault –
+# 1.     Vault is registered as a client and uses the client secret to store and retrieve the key
+# 2.     Azure key vault replaces shamir key
 
 seal "azurekeyvault" {
   client_id      = "80K63636-0219-4e80-893b-304bcb83882d"
@@ -18,6 +31,9 @@ seal "azurekeyvault" {
   key_name       = "Vault"
 }
 
+# Other-
+# 1.     User interface is enabled
+# 2.     Api address is to mention the ip address to which the application listens
 
 disable_mlock="true"
 ui="true"
