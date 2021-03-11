@@ -32,8 +32,9 @@ seal "azurekeyvault" {
 }
 
 # Other-
-# 1.     User interface is enabled
-# 2.     Api address is to mention the ip address to which the application listens
+# 1.     Give vault the ability to use the mlock syscall without running the process as root. The mlock syscall prevents memory from being swapped to disk.
+# 2.     User interface is enabled
+# 3.     Api address is to mention the ip address to which the application listens
 
 disable_mlock="true"
 ui="true"
