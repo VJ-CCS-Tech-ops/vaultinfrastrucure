@@ -2,7 +2,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "vault_masterkeystore" {
-  name                        = "AzD-UKS-AzK-Vault01"
+  name                        = "AzK-Vault01"
   location                    = azurerm_resource_group.vault_rg.location
   resource_group_name         = azurerm_resource_group.vault_rg.name
   enabled_for_disk_encryption = false

@@ -22,5 +22,5 @@ variable "https_port" {
 variable "vm_names" {
 
   type    = list
-  default = ["AzD-UKS-Vault-VM01", "AzD-UKS-Vault-VM02"]
+  default = ["Vault-VM01", "AzD-UKS-Vault-VM02"]
 }

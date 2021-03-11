@@ -1,12 +1,12 @@
 resource "azurerm_public_ip" "vault_pubip" {
-  name                = "AzD-UKS-Vault-LBS01-PIP"
+  name                = "Vault-LBS01-PIP"
   location            = "${var.region}"
   resource_group_name = azurerm_resource_group.vault_rg.name
   allocation_method   = "Static"
 }
 
 resource "azurerm_lb" "vault_lb" {
-  name                = "AzD-UKS-Vault-LBS"
+  name                = "Vault-LBS"
   location            = "${var.region}"
   resource_group_name = azurerm_resource_group.vault_rg.name
 

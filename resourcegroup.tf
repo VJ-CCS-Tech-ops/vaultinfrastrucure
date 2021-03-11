@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "vault_rg" {
-  name     = "AzD-UKS-Vault"
+  name     = "Vault"
   location = "${var.region}"
 
   tags = {

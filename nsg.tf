@@ -1,5 +1,5 @@
 resource "azurerm_network_security_group" "vault_nsg" {
-  name                = "AzD-UKS-NSG01"
+  name                = "NSG01"
   location            = "${var.region}"
   resource_group_name = azurerm_resource_group.vault_rg.name
 
