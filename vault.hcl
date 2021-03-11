@@ -38,5 +38,5 @@ seal "azurekeyvault" {
 
 disable_mlock="true"
 ui="true"
-api_addr="http://10.0.0.4:8200"
+api_addr="https://vault.devopsautomation.com:8200"
 cluster_addr=http://10.0.0.4:8201
